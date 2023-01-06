@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import React from 'react';
 
-const SectionTitle = ({title, colored}) => {
+const SectionTitle = ({title, colored, sx}) => {
     return (
       <>
         <Typography
@@ -9,6 +9,7 @@ const SectionTitle = ({title, colored}) => {
             fontSize: "34px",
             fontWeight: "700",
             textAlign: "center",
+            ...sx
           }}
         >
           {title}{" "}
