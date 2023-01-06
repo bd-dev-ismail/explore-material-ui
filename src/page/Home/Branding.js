@@ -26,11 +26,9 @@ const Branding = () => {
             Let’s Grow Your Brand <br /> To The Next Level
           </Typography>
           <Typography
-            sx={{
-              width: "50%",
-            }}
+           
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br /> Purus
             commodo ipsum duis laoreet maecenas. Feugiat{" "}
           </Typography>
           <Button
@@ -44,6 +42,12 @@ const Branding = () => {
         <Box
           sx={{
             width: "50%",
+            // display: ['none', 'none', 'block'],
+            display: {
+                xs: "none",
+                sm: "none",
+                md: "block"
+            }
           }}
         >
           <img
