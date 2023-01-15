@@ -1,41 +1,92 @@
-import { Box } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import React from 'react';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 const OurWorks = () => {
     const [value, setValue] = React.useState(0);
 
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    const handleChange = (event, newValue) => {
+        console.log(newValue);
       setValue(newValue);
     };
     return (
       <Box
         sx={{
-          mt: 5,
+          my: 5,
         }}
       >
         {/* Heading Section  */}
-        <Box sx={{
+        <Box
+          sx={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center"
-        }}>
-         
-            <SectionTitle
-              title="Here are some of"
-              colored="our works"
+            alignItems: "center",
+          }}
+        >
+          <SectionTitle
+            title="Here are some of"
+            colored="our works"
+            sx={{
+              textAlign: "left",
+            }}
+          />
+
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              centered
               sx={{
-                textAlign: "left",
+                "& 	.MuiTabs-indicator": {
+                  display: "none",
+                },
+                "& .Mui-selected": {
+                  color: "primary.green",
+                  fontWeight: "700",
+                },
+                "& .MuiButtonBase-root": {
+                  textTransform: "capitalize",
+                },
               }}
-            />
-          
-          <Box>
-            <Tabs value={value} onChange={handleChange} centered>
-              <Tab label="Item One" />
-              <Tab label="Item Two" />
-              <Tab label="Item Three" />
+            >
+              <Tab label="All" />
+              <Tab label="Web Design" />
+              <Tab label="Mobile App" />
             </Tabs>
+            <Box>
+              <IconButton
+                sx={{
+                  border: `1px solid #959EAD`,
+                  mr: 2,
+                }}
+                onClick={() => setValue(value - 1)}
+                disabled={value === 0}
+              >
+                <ArrowBackIcon />
+              </IconButton>
+              <IconButton
+                sx={{
+                  border: `1px solid #959EAD`,
+                }}
+                onClick={() => setValue(value + 1)}
+                disabled={value === 2}
+              >
+                <ArrowBackIcon
+                  sx={{
+                    transform: "rotate(180deg)",
+                  }}
+                />
+              </IconButton>
+            </Box>
           </Box>
         </Box>
       </Box>
